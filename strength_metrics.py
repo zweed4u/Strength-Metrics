@@ -380,25 +380,211 @@ class StrengthMetrics:
         return male_table[my_weight_class]
 
     def clean(self):
-        """
+        male_table = {
+            114: {
+                'Untrained': 55,
+                'Novice': 105,
+                'Intermediate': 125,
+                'Advanced': 175,
+                'Elite': 205
+            },
+            123: {
+                'Untrained': 60,
+                'Novice': 110,
+                'Intermediate': 135,
+                'Advanced': 185,
+                'Elite': 225
+            },
+            132: {
+                'Untrained': 65,
+                'Novice': 120,
+                'Intermediate': 150,
+                'Advanced': 200,
+                'Elite': 240
+            },
+            148: {
+                'Untrained': 75,
+                'Novice': 135,
+                'Intermediate': 165,
+                'Advanced': 225,
+                'Elite': 265
+            },
+            165: {
+                'Untrained': 80,
+                'Novice': 145,
+                'Intermediate': 180,
+                'Advanced': 245,
+                'Elite': 290
+            },
+            181: {
+                'Untrained': 85,
+                'Novice': 160,
+                'Intermediate': 195,
+                'Advanced': 265,
+                'Elite': 310
+            },
+            198: {
+                'Untrained': 90,
+                'Novice': 165,
+                'Intermediate': 205,
+                'Advanced': 280,
+                'Elite': 325
+            },
+            220: {
+                'Untrained': 95,
+                'Novice': 175,
+                'Intermediate': 215,
+                'Advanced': 295,
+                'Elite': 345
+            },
+            242: {
+                'Untrained': 100,
+                'Novice': 185,
+                'Intermediate': 225,
+                'Advanced': 305,
+                'Elite': 355
+            },
+            275: {
+                'Untrained': 105,
+                'Novice': 190,
+                'Intermediate': 230,
+                'Advanced': 315,
+                'Elite': 365
+            },
+            319: {
+                'Untrained': 110,
+                'Novice': 195,
+                'Intermediate': 235,
+                'Advanced': 320,
+                'Elite': 375
+            },
+            320: {
+                'Untrained': 115,
+                'Novice': 200,
+                'Intermediate': 240,
+                'Advanced': 330,
+                'Elite': 385
+            }
+        }
         my_weight_class = min(list(male_table.keys()),
                               key=lambda x: abs(x - self.weight))
         print(
             f'Clean metrics for your weight class ({my_weight_class} at {self.weight}):\n{male_table[my_weight_class]}\n')
         return male_table[my_weight_class]
-        """
 
     def snatch(self):
-        """
+        male_table = {
+            114: {
+                'Untrained': 45,
+                'Novice': 80,
+                'Intermediate': 95,
+                'Advanced': 135,
+                'Elite': 160
+            },
+            123: {
+                'Untrained': 50,
+                'Novice': 85,
+                'Intermediate': 105,
+                'Advanced': 145,
+                'Elite': 175
+            },
+            132: {
+                'Untrained': 55,
+                'Novice': 95,
+                'Intermediate': 115,
+                'Advanced': 155,
+                'Elite': 185
+            },
+            148: {
+                'Untrained': 60,
+                'Novice': 105,
+                'Intermediate': 130,
+                'Advanced': 175,
+                'Elite': 205
+            },
+            165: {
+                'Untrained': 65,
+                'Novice': 115,
+                'Intermediate': 140,
+                'Advanced': 190,
+                'Elite': 225
+            },
+            181: {
+                'Untrained': 70,
+                'Novice': 125,
+                'Intermediate': 150,
+                'Advanced': 205,
+                'Elite': 240
+            },
+            198: {
+                'Untrained': 75,
+                'Novice': 130,
+                'Intermediate': 160,
+                'Advanced': 220,
+                'Elite': 250
+            },
+            220: {
+                'Untrained': 80,
+                'Novice': 135,
+                'Intermediate': 170,
+                'Advanced': 230,
+                'Elite': 265
+            },
+            242: {
+                'Untrained': 85,
+                'Novice': 140,
+                'Intermediate': 175,
+                'Advanced': 235,
+                'Elite': 275
+            },
+            275: {
+                'Untrained': 90,
+                'Novice': 145,
+                'Intermediate': 180,
+                'Advanced': 245,
+                'Elite': 285
+            },
+            319: {
+                'Untrained': 95,
+                'Novice': 150,
+                'Intermediate': 185,
+                'Advanced': 250,
+                'Elite': 290
+            },
+            320: {
+                'Untrained': 100,
+                'Novice': 155,
+                'Intermediate': 190,
+                'Advanced': 260,
+                'Elite': 300
+            }
+        }
         my_weight_class = min(list(male_table.keys()),
                               key=lambda x: abs(x - self.weight))
         print(
             f'Power Snatch metrics for your weight class ({my_weight_class} at {self.weight}):\n{male_table[my_weight_class]}\n')
         return male_table[my_weight_class]
-        """
 
 
 MyReport = StrengthMetrics('M', 184)
 MyReport.bench()
 MyReport.squat()
 MyReport.deadlift()
+
+reference_string = """
+Untrained:
+Expected level of strength in a healthy individual who has not trained on the exercise before but can perform it correctly. This represents the minimum level of strength required to maintain a reasonable quality of life in a sedentary individual.
+
+Novice:
+A person training regularly for a period of 3-9 months. This strength level supports the demands of vigorous recreational activities.
+
+Intermediate:
+A person who has engaged in regular training for up to two years. The intermediate level indicates some degree of specialization in the exercises and a high level of performance at the recreational level.
+
+Advanced:
+An individual with multi-year training experience with definite goals in the higher levels of competitive athletics.
+
+Elite:
+Refers specifically to athletes competing in strength sports. Less than 1% of the weight training population will attain this level.
+"""
+print(f'For reference: {reference_string}')
