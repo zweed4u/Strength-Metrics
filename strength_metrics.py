@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # 1RM metrics: http://www.exrx.net/Testing/WeightLifting/StrengthStandards.htm
 
+import inspect
+
 
 class StrengthMetrics:
     def __init__(self, gender, weight):
@@ -567,9 +569,16 @@ class StrengthMetrics:
 
 
 MyReport = StrengthMetrics('M', 184)
-MyReport.bench()
-MyReport.squat()
-MyReport.deadlift()
+
+# Run all methods in the class
+attributes = (getattr(MyReport, name) for name in dir(MyReport))
+methods = filter(inspect.ismethod, attributes)
+for method in methods:
+    try:
+        method()
+    except TypeError:
+        # Can't handle methods with required arguments.
+        pass
 
 reference_string = """
 Untrained:
