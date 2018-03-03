@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # 1RM metrics: http://www.exrx.net/Testing/WeightLifting/StrengthStandards.htm
 
+import sys
 import inspect
 
 
@@ -568,7 +569,10 @@ class StrengthMetrics:
         return male_table[my_weight_class]
 
 
-MyReport = StrengthMetrics('M', 184)
+if len(sys.argv) > 1:
+    MyReport = StrengthMetrics('M', float(sys.argv[1]))
+else:
+    MyReport = StrengthMetrics('M', 184)
 
 # Run all methods in the class
 attributes = (getattr(MyReport, name) for name in dir(MyReport))
